@@ -7,31 +7,14 @@ import './index.css';
 // const author = '';
 // const img = '';
 
-const books = [
-  {
-    id:1,
-    img: 'https://m.media-amazon.com/images/I/81StezluKUS._AC_UY327_FMwebp_QL65_.jpg',
-    title: 'The Complete Novels of Sherlock Holmes',
-    author: 'Arthur Conan Doyle '
-  },
-  {
-    id:2,
-    img: 'https://m.media-amazon.com/images/I/917RlnXGwIL._AC_UY327_FMwebp_QL65_.jpg',
-    title: 'The Mighty Thor Vol. 1: Thunder In Her Veins (The Mighty Thor (2015-2018))',
-    author: 'Jason Aaron and Russell Dauterman '
-  },
-  {
-    id:3,
-    img: 'https://m.media-amazon.com/images/I/81SUEMfpwML._AC_UY327_FMwebp_QL65_.jpg',
-    title: 'Vote Loki (Vote Loki (2016))',
-    author: 'Christopher Hastings , Ralph Macchio, et al. '
-  },
-];
+import {data} from './books'
+import Book from './Book'
+
 
 function BookList() {
   return (
     <section className='booklist'>
-      {books.map((book)=>{
+      {data.map((book)=>{
         const {img , title, author } = book;
         return (
          //<Book img={img} title={title} author={author}/>
@@ -42,30 +25,6 @@ function BookList() {
   );
 }
 
-const Book = (props) => {
-  //props = {img, title, author}
-  const { img, title, author} = props;   
-  //console.log(props);
-  //attribute , eventHandler
-  //onClick, onMouseOver
-  const clickHandler = () => {
-    console.log('function called');   // called as soon as render //
-  }
-
-  const complexClick = (author) => {
-    console.log(author);
-  }
-
-  return (
-    <article className='book'>
-      <img src={img} alt='Books' />
-      <h1>{title}</h1> 
-      <h4>by {author} </h4>
-      <button onClick={clickHandler}>Click Me</button>
-      <button onClick={() => complexClick(author)}>Second Func</button>
-    </article>
-  );
-}
 
 // const Book = (props) => {
 //   //props = {img, title, author}
